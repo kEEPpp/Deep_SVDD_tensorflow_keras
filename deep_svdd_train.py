@@ -34,14 +34,13 @@ class DeepSVDDTrain:
                       'R': 0.0,
                       'nu': 0.1}
         '''
+
     #set_c ==> get_c로 바꾸기 get을 더 많이 씀
     def set_c(self, eps=0.1):
         """Initializing the center for the hypersphere"""
         model = self.svdd_model.build_graph()
         if self.args['pretrain'] == True:
             model.load_weights(os.path.join(MODEL_SAVE_DIR_PATH, 'pretrain_ae.hdf5'))
-
-            #temp 쓰지 말기
             z_list = []
             for (x_train_batch, _) in self.train_datasets:
                 z = model.predict(x_train_batch)
@@ -57,8 +56,12 @@ class DeepSVDDTrain:
 
         return c
 
+    def radius_loss(self, y_true, y_pred):
+        pass
+
     def weight_loss(self, y_true, y_pred):
         self.dist_op = tf.reduce_sum(tf.square(y_pred - self.c), axis=-1) #evaluation 할 때 distance, score function 생성
+
         score_op = self.dist_op - self.R ** 2
         penalty = tf.reduce_mean(tf.maximum(score_op, tf.zeros_like(score_op))) #tf.reduce_mean 추가
         loss_op = self.R ** 2 + (1 / self.nu) * penalty
@@ -104,12 +107,16 @@ class DeepSVDDTrain:
                 if (step + 1) % 50 == 0:
                     print(f"step {step + 1}: mean loss = {train_loss.result():.4f}")
                 if (epoch + 1) % 5 == 0:
+
                     self.R = self.get_R()
 
         return model, self.R
 
     def get_R(self):
         return np.quantile(np.sqrt(self.dist_op.numpy()), 1 - self.nu)
+
+    def deep_svdd_train(self):
+        pass
 
     def eval_step(self):
         pass

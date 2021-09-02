@@ -51,6 +51,7 @@ class DeepSVDD(Model):
         self.encoder_layer1 = layers.Dense(hidden1, activation='relu', name='encoder1')
         self.encoder_layer2 = layers.Dense(hidden2, activation='relu', name='encoder2')
 
+
         self.latent = layers.Dense(latent_space, activation='relu', name='latent')
 
         self.latent_dim = latent_space
