@@ -46,14 +46,23 @@ class Pretrain_AutoEncoder(Model):
 
 
 class DeepSVDD(Model):
+<<<<<<< HEAD
     def __init__(self, hidden1, hidden2, latent_space, input_dim):
+=======
+    def __init__(self, hidden1, hidden2, latent, input_dim):
+>>>>>>> 92f00fc23286196eff4a1ecc958f9a746b40af92
         super(DeepSVDD, self).__init__()
         self.encoder_layer1 = layers.Dense(hidden1, activation='relu', name='encoder1')
         self.encoder_layer2 = layers.Dense(hidden2, activation='relu', name='encoder2')
 
+<<<<<<< HEAD
         self.latent = layers.Dense(latent_space, activation='relu', name='latent')
 
         self.latent_dim = latent_space
+=======
+        self.latent = layers.Dense(latent, activation='relu', name='latent')
+
+>>>>>>> 92f00fc23286196eff4a1ecc958f9a746b40af92
         self.input_dim = input_dim
 
     def build_graph(self):
