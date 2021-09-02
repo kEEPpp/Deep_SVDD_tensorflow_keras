@@ -46,6 +46,6 @@ class PreTrain:
     def save_weights_pretrain(self, model):
         """학습된 AutoEncoder 가중치를 DeepSVDD모델에 Initialize해주는 함수"""
         # c = self.set_c()
-        print(os.path.join(MODEL_SAVE_DIR_PATH, 'pretrain_ae.hdf5'))
+        print(f"Saved to {os.path.join(MODEL_SAVE_DIR_PATH, 'pretrain_ae.hdf5')}")
         model.save_weights(os.path.join(MODEL_SAVE_DIR_PATH, 'pretrain_ae.hdf5'))  # model save
 

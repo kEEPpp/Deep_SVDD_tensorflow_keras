@@ -1,0 +1,10 @@
+{
+  "data_type": "mnist",
+  "normal_class" : 1,
+  "epoch": 10,
+  "batch": 32,
+  "pretrain": 1,
+  "weight_decay": 1e-6,
+  "acc_lst": [],
+  "c": 0.1
+}
