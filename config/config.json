@@ -1,10 +1,14 @@
 {
   "data_type": "mnist",
   "normal_class" : 1,
-  "epoch": 10,
+  "abnormal_class" : 5,
+  "pretrain_epoch": 8,
+  "svdd_epoch": 10,
   "batch": 32,
-  "pretrain": 1,
+  "pretrain": "True",
   "weight_decay": 1e-6,
   "acc_lst": [],
-  "c": 0.1
+  "c" : 0.1,
+  "R" : 0.0,
+  "nu": 0.1
 }

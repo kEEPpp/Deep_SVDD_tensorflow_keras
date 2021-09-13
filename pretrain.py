@@ -19,7 +19,7 @@ from tensorflow.keras.models import Model
 MODEL_SAVE_DIR_PATH = os.path.abspath('pretrain_weight')
 
 class PreTrain:
-    def __init__(self, args, ae_model, train_dataset, test_dataset):
+    def __init__(self, args : dict, ae_model, train_dataset, test_dataset):
         self.args = args
         self.ae_model = ae_model
 
