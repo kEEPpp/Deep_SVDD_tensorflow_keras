@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow import keras
 
 
-class Data_Loader:
+class Mnist_Data_Loader:
     def __init__(self, config):
         self.type_of_data = config['data_type']
         self.normal_class = config['normal_class']
