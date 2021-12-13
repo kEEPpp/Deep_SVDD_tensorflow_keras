@@ -3,10 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-from Data.Data_Loader import Data_Loader
-
-MODEL_SAVE_DIR_PATH = os.path.abspath('pretrain_weight')
-
+from Data.Data_Loader import Mnist_Data_Loader
 
 class Test:
     def __init__(self, config, svdd, pretrain, value):
@@ -14,7 +11,7 @@ class Test:
         self.svdd = svdd
         self.pretrain = pretrain
         self.value = value
-        self.data_loader = Data_Loader(self.config)
+        self.data_loader = Mnist_Data_Loader(self.config)
 
     def pretrain_evaluation(self):
         train_dataset, test_dataset = self.data_loader.pretrain_mnist()
